@@ -16,10 +16,17 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try{
-            $customers = Customer::withTrashed()->get();
+            $skip = $request->query('skip', 0);
+            $limit = $request->query('limit', 10);
+
+            $customers = Customer::withTrashed()
+                ->skip($skip)
+                ->take($limit)
+                ->get();
+
             return response()->json([
                 'status' => true,
                 'customers' => $customers
