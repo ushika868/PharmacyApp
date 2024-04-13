@@ -42,9 +42,10 @@ To get started with this application, follow these steps:
         php artisan key:generate
 
 6. Set up your database in the .env file:
-   DB_CONNECTION=sqlite
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
+
+        DB_CONNECTION=sqlite
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
 
 7. Migrate the database:
 
@@ -55,6 +56,10 @@ To get started with this application, follow these steps:
 To run the application locally, use the following command:
 
     php artisan serve
+
+### Documentation
+
+Postman collection & Entity Relation Diagram are added to "Documents" folder
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
