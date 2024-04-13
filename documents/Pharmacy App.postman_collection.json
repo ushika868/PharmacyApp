@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "9c2ddde6-005c-4b6f-b638-43fc66166103",
+		"name": "Pharmacy App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34235214"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "john1@mailinator.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Test@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://127.0.0.1:8000/api/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "User registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "John",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "john1@mailinator.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Test@123",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "owner",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://127.0.0.1:8000/api/auth/register"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Create customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "9|t3VPKt5Uwv16Bji1HovqzpOzvegrePZ5X4sph6Fw07626d8c"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"george\",\r\n    \"address\" : \"matale\",\r\n    \"gender\" : \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/customers/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "9|t3VPKt5Uwv16Bji1HovqzpOzvegrePZ5X4sph6Fw07626d8c"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/customers/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "11|VdUEZC8w01zZ9VwdG0NPNQ3XIMW92dQhVQ4goMrFdb6b53fd"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/customers/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "2|iO9NEIS7peg7PuidXm5JRiPUZsm982z0PLYSs8ZZ44e1bcbe"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Anne zen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/customers/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "10|H2eKMVXLQNSpiF9fyu270Uqp0gSR1fVs0Y4ccbkI25349bf8"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/customers/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "9|t3VPKt5Uwv16Bji1HovqzpOzvegrePZ5X4sph6Fw07626d8c"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/customers/remove/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medication",
+			"item": [
+				{
+					"name": "Create medication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "8|7lMCxQnVWSIu1ReG0SZaYN8Ap3zYAfhezOd9poXd7f043d57"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vitamin-D\",\r\n    \"quantity\" :26,\r\n    \"unit_price\" : 2.50,\r\n    \"expiry_date\":\"2025-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/medications"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Medications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "6|XX3rvFd8AVoet8I3Pp9Mpe1exdtospCNgUbrkEF2b3473bb8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/medications"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Medication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "6|XX3rvFd8AVoet8I3Pp9Mpe1exdtospCNgUbrkEF2b3473bb8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/medications/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Medication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "3|DOmp9m0UixiiqvIe68O06mJ9ehaObSowthRo5PU7641a292c"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Paracetamol\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/medications/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Medication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "3|DOmp9m0UixiiqvIe68O06mJ9ehaObSowthRo5PU7641a292c"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/medications/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Permanent Delete Medication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "3|DOmp9m0UixiiqvIe68O06mJ9ehaObSowthRo5PU7641a292c"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/medications/remove/2"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
